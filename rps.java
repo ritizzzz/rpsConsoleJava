@@ -3,6 +3,17 @@ import java.util.*;
 public class rps{
     static int playerScore = 0;
     static int computerScore = 0;
+    
+    public static void printScores(){
+        System.out.printf("%-10s%-20s%-20s\n", "", "Player", "Computer");
+        for(int i = 0; i < 50; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+        System.out.printf("%-10s%-20d%-20d\n", "Score", playerScore, computerScore);
+    }
+
+    
     public static void detWinner(String playerMove, int computerMove){
         String winningComb = "PSR";
         String losingComb = "SRP";
@@ -16,6 +27,7 @@ public class rps{
             System.out.println("It's a tie");
         }
     }
+
     public static void main(String[] args){
         
         String moves = "RPS";
@@ -46,7 +58,7 @@ public class rps{
             System.out.println("Enter your move:");
             userMove = scnr.next().toUpperCase();    
         }
-
+        printScores();
         scnr.close();
     }
 }
