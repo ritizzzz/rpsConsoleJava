@@ -1,12 +1,20 @@
 import java.util.*;
 
 public class rps{
-    public String playerWin(char playerMove, int computerMove){
-        char[] winningComb = {'P', 'S', 'R'};
-        char[] losingComb = {'S', 'R', 'P'};
-        
-        
-        return "tie";
+    static int playerScore = 0;
+    static int computerScore = 0;
+    public static void detWinner(String playerMove, int computerMove){
+        String winningComb = "PSR";
+        String losingComb = "SRP";
+        if(winningComb.indexOf(playerMove) == computerMove){
+            System.out.println("You Win!!!");
+            playerScore += 1;
+        }else if(losingComb.indexOf(playerMove) == computerMove){
+            System.out.println("You Lose!!!");
+            computerScore += 1;
+        }else{
+            System.out.println("It's a tie");
+        }
     }
     public static void main(String[] args){
         
@@ -32,8 +40,9 @@ public class rps{
                 }
             }
             System.out.printf("Your move is: %s\n", userMove);
-            System.out.printf("Computers move is: %s\n\n", moves.substring(compMove, compMove+1));
-            
+            System.out.printf("Computers move is: %s\n", moves.substring(compMove, compMove+1));
+            detWinner(userMove, compMove);
+            System.out.println();
             System.out.println("Enter your move:");
             userMove = scnr.next().toUpperCase();    
         }
